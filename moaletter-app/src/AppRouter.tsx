@@ -35,34 +35,36 @@ const AppRouter = (): JSX.Element => {
         />
 
         {/* 모아모아 계획 관련 라우트 */}
-        <Route path="/plan">
+        <Route
+          path="/plan/"
+          element={<AuthRoute isLogin={isLogin} component={<PlanDetails />} />}
+        >
           <Route
-            path="/:planId"
+            index
+            path=":planId"
             element={
               <AuthRoute isLogin={isLogin} component={<PlanDetails />} />
             }
           />
           3
           <Route
-            path="/register"
+            path="register"
             element={
               <AuthRoute isLogin={isLogin} component={<PlanRegistration />} />
             }
           />
         </Route>
-
         {/* 편지 관련 라우트 */}
-        <Route path="/letters">
+        <Route
+          path="/letters/"
+          element={<AuthRoute isLogin={isLogin} component={<LetterBox />} />}
+        >
           <Route
-            index
+            path=":letterId"
             element={<AuthRoute isLogin={isLogin} component={<LetterBox />} />}
           />
           <Route
-            path="/:letterId"
-            element={<AuthRoute isLogin={isLogin} component={<LetterBox />} />}
-          />
-          <Route
-            path="/register"
+            path="register"
             element={<AuthRoute isLogin={isLogin} component={<LetterForm />} />}
           />
         </Route>
