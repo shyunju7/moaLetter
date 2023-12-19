@@ -46,7 +46,6 @@ const AppRouter = (): JSX.Element => {
               <AuthRoute isLogin={isLogin} component={<PlanDetails />} />
             }
           />
-          3
           <Route
             path="register"
             element={
