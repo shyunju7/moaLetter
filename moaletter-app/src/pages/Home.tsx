@@ -2,23 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /**
- * 홈 페이지 입니다.
- * @returns {JSX.Element}
+ * 홈 페이지
+ * @returns {JSX.Element} Home 페이지
+ *
  */
 const Home = (): JSX.Element => {
     return (
-        <>
+        <div>
             <h1>home</h1>
             <ul>
                 <li>
-                    <Link to="/meeting/detail">상세보기</Link>
+                    <Link to="/plan/details/:detailid">상세보기</Link>
                 </li>
 
                 <li>
-                    <Link to="/letter/compose">편지작성</Link>
+                    <Link to="/plan/register/letter">편지작성</Link>
                 </li>
             </ul>
-        </>
+            <div>
+                <Link to="/">
+                    <label>홈</label>
+                </Link>
+                <Link to="/plan/register">
+                    <label>+</label>
+                </Link>
+                <Link to="/letterbox/:letterid">
+                    <label>우편함</label>
+                </Link>
+            </div>
+        </div>
     );
 };
 export default Home;
