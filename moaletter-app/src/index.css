@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  --app-bg-color: #eff3f7;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: aqua;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--app-bg-color);
 }
