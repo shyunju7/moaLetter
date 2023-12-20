@@ -4,10 +4,10 @@
  * @returns {JSX.Element} Template 컴포넌트
  */
 const Template = ({ children }: { children: JSX.Element }): JSX.Element => {
-  return (
-    <main className="max-[600px]:w-screen h-screen min-[600px]:min-w-[600px] bg-white overflow-y-auto">
-      {children}
-    </main>
-  );
+    return (
+        <main className="max-[600px]:w-screen h-screen min-[600px]:min-w-[600px] bg-white overflow-y-auto">
+            {children}
+        </main>
+    );
 };
 export default Template;
