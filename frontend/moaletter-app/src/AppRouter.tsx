@@ -5,7 +5,12 @@ import PlanRegistration from "./pages/PlanRegistration";
 import PlanDetails from "./pages/PlanDetails";
 import LetterBox from "./pages/LetterBox";
 import LetterForm from "./pages/LetterForm";
-import { AuthRouteProps } from "./types/components";
+
+/** AuthRouteProps 인터페이스 정의 **/
+export interface AuthRouteProps {
+    isLogin: boolean;
+    component: JSX.Element;
+}
 
 /**
  * 로그인이 필요한 페이지 처리를 위한 라우트
@@ -36,43 +41,65 @@ const AppRouter = (): JSX.Element => {
                     }
                 />
 
+                {/* 모아모아 계획 관련 라우트 */}
                 <Route
-                    path="/plan/register"
-                    element={
-                        <AuthRoute
-                            isLogin={isLogin}
-                            component={<PlanRegistration />}
-                        />
-                    }
-                />
-
-                <Route
-                    path="/plan/details/:detailid"
+                    path="/plan/"
                     element={
                         <AuthRoute
                             isLogin={isLogin}
                             component={<PlanDetails />}
                         />
                     }
-                />
+                >
+                    <Route
+                        index
+                        path=":planId"
+                        element={
+                            <AuthRoute
+                                isLogin={isLogin}
+                                component={<PlanDetails />}
+                            />
+                        }
+                    />
+                    <Route
+                        path="register"
+                        element={
+                            <AuthRoute
+                                isLogin={isLogin}
+                                component={<PlanRegistration />}
+                            />
+                        }
+                    />
+                </Route>
+                {/* 편지 관련 라우트 */}
                 <Route
-                    path="/letterbox/:letterid"
+                    path="/letters/"
                     element={
                         <AuthRoute
                             isLogin={isLogin}
                             component={<LetterBox />}
                         />
                     }
-                />
-                <Route
-                    path="/plan/register/letter"
-                    element={
-                        <AuthRoute
-                            isLogin={isLogin}
-                            component={<LetterForm />}
-                        />
-                    }
-                />
+                >
+                    <Route
+                        path=":letterId"
+                        element={
+                            <AuthRoute
+                                isLogin={isLogin}
+                                component={<LetterBox />}
+                            />
+                        }
+                    />
+                    <Route
+                        path="register"
+                        element={
+                            <AuthRoute
+                                isLogin={isLogin}
+                                component={<LetterForm />}
+                            />
+                        }
+                    />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
