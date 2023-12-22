@@ -1,6 +1,7 @@
 import React from "react";
 import Template from "../components/Template";
-
+import logo from "../assets/logo.svg";
+import kakaoLogin from "../assets/kakao-login.png";
 /**
  * 로그인 페이지
  * @returns {JSX.Element} Login 페이지
@@ -8,8 +9,10 @@ import Template from "../components/Template";
 const Login = (): JSX.Element => {
     return (
         <Template>
-            <div className="my-6 mx-4">
-                <h1>로그인</h1>
+            <div className="flex flex-col items-center justify-center gap-[126px] h-full">
+                <img src={logo} className="w-[147.29px] h-[108.16px]" />
+                <h1 className="font-SUITE-BD text-[28px]">모아레터</h1>
+                <img src={kakaoLogin} className="w-[326px] h-[52px]" />
             </div>
         </Template>
     );
