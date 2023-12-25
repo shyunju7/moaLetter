@@ -6,7 +6,7 @@ import PlanDetails from "./pages/Plan/PlanDetails";
 import LetterForm from "./pages/Letter/LetterForm";
 import Plan from "./pages/Plan";
 import Letter from "./pages/Letter";
-import LetterDetails from "./pages/Letter/LetterDetails";
+import LetterBox from "./pages/Letter/LetterDetails";
 
 /** AuthRouteProps 인터페이스 정의 **/
 export interface AuthRouteProps {
@@ -65,9 +65,7 @@ const AppRouter = (): JSX.Element => {
 				>
 					<Route
 						path=":letterId"
-						element={
-							<AuthRoute isLogin={isLogin} component={<LetterDetails />} />
-						}
+						element={<AuthRoute isLogin={isLogin} component={<LetterBox />} />}
 					/>
 					<Route
 						path="register"
