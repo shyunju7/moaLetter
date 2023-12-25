@@ -1,15 +1,17 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import PlanRegistration from "./pages/PlanRegistration";
-import PlanDetails from "./pages/PlanDetails";
-import LetterBox from "./pages/LetterBox";
-import LetterForm from "./pages/LetterForm";
+import PlanForm from "./pages/Plan/PlanForm";
+import PlanDetails from "./pages/Plan/PlanDetails";
+import LetterForm from "./pages/Letter/LetterForm";
+import Plan from "./pages/Plan";
+import Letter from "./pages/Letter";
+import LetterBox from "./pages/Letter/LetterDetails";
 
 /** AuthRouteProps 인터페이스 정의 **/
 export interface AuthRouteProps {
-    isLogin: boolean;
-    component: JSX.Element;
+	isLogin: boolean;
+	component: JSX.Element;
 }
 
 /**
@@ -19,7 +21,7 @@ export interface AuthRouteProps {
  */
 
 const AuthRoute = ({ isLogin, component }: AuthRouteProps): JSX.Element => {
-    return isLogin ? component : <Navigate to="/login" replace />;
+	return isLogin ? component : <Navigate to="/login" replace />;
 };
 
 /**
@@ -27,81 +29,51 @@ const AuthRoute = ({ isLogin, component }: AuthRouteProps): JSX.Element => {
  * @returns {JSX.Element} AppRouter 컴포넌트
  */
 const AppRouter = (): JSX.Element => {
-    const isLogin = true;
+	const isLogin = true;
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                {!isLogin && <Route path="/login" element={<Login />} />}
+	return (
+		<BrowserRouter>
+			<Routes>
+				{!isLogin && <Route path="/login" element={<Login />} />}
 
-                <Route
-                    path="/"
-                    element={
-                        <AuthRoute isLogin={isLogin} component={<Home />} />
-                    }
-                />
+				<Route
+					path="/"
+					element={<AuthRoute isLogin={isLogin} component={<Home />} />}
+				/>
 
-                {/* 모아모아 계획 관련 라우트 */}
-                <Route
-                    path="/plan/"
-                    element={
-                        <AuthRoute
-                            isLogin={isLogin}
-                            component={<PlanDetails />}
-                        />
-                    }
-                >
-                    <Route
-                        index
-                        path=":planId"
-                        element={
-                            <AuthRoute
-                                isLogin={isLogin}
-                                component={<PlanDetails />}
-                            />
-                        }
-                    />
-                    <Route
-                        path="register"
-                        element={
-                            <AuthRoute
-                                isLogin={isLogin}
-                                component={<PlanRegistration />}
-                            />
-                        }
-                    />
-                </Route>
-                {/* 편지 관련 라우트 */}
-                <Route
-                    path="/letters/"
-                    element={
-                        <AuthRoute
-                            isLogin={isLogin}
-                            component={<LetterBox />}
-                        />
-                    }
-                >
-                    <Route
-                        path=":letterId"
-                        element={
-                            <AuthRoute
-                                isLogin={isLogin}
-                                component={<LetterBox />}
-                            />
-                        }
-                    />
-                    <Route
-                        path="register"
-                        element={
-                            <AuthRoute
-                                isLogin={isLogin}
-                                component={<LetterForm />}
-                            />
-                        }
-                    />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+				{/* 모아모아 계획 관련 라우트 */}
+				<Route
+					path="/plan/"
+					element={<AuthRoute isLogin={isLogin} component={<Plan />} />}
+				>
+					<Route
+						path="register"
+						element={<AuthRoute isLogin={isLogin} component={<PlanForm />} />}
+					/>
+					<Route
+						index
+						path=":planId"
+						element={
+							<AuthRoute isLogin={isLogin} component={<PlanDetails />} />
+						}
+					/>
+				</Route>
+				{/* 편지 관련 라우트 */}
+				<Route
+					path="/letters/"
+					element={<AuthRoute isLogin={isLogin} component={<Letter />} />}
+				>
+					<Route
+						path=":letterId"
+						element={<AuthRoute isLogin={isLogin} component={<LetterBox />} />}
+					/>
+					<Route
+						path="register"
+						element={<AuthRoute isLogin={isLogin} component={<LetterForm />} />}
+					/>
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
 };
 export default AppRouter;
