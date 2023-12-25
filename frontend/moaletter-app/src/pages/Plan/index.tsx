@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import PlanRegistration from "./PlanForm";
+import PlanForm from "./PlanForm";
 import PlanDetails from "./PlanDetails";
 
 /**
@@ -8,6 +8,6 @@ import PlanDetails from "./PlanDetails";
  */
 const Plan = (): JSX.Element => {
 	const { pathname } = useLocation();
-	return pathname === "/plan/register" ? <PlanRegistration /> : <PlanDetails />;
+	return pathname === "/plan/register" ? <PlanForm /> : <PlanDetails />;
 };
 export default Plan;
