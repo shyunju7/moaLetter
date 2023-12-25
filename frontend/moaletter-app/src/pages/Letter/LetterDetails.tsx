@@ -1,3 +1,4 @@
+import Header from "../../components/Header";
 import Template from "../../components/Template";
 
 /**
@@ -7,7 +8,7 @@ import Template from "../../components/Template";
 const LetterDetails = (): JSX.Element => {
 	return (
 		<Template>
-			<h1>편지가 있어요</h1>
+			<Header title="편지 상세" />
 		</Template>
 	);
 };

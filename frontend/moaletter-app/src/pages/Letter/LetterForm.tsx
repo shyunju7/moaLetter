@@ -1,3 +1,4 @@
+import Header from "../../components/Header";
 import Template from "../../components/Template";
 
 /**
@@ -7,7 +8,7 @@ import Template from "../../components/Template";
 const LetterForm = (): JSX.Element => {
 	return (
 		<Template>
-			<h1>편지를 작성하세요</h1>
+			<Header title="편지 작성" />
 		</Template>
 	);
 };
