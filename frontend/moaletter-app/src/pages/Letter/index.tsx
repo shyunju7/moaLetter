@@ -9,20 +9,20 @@ import Header from "../../components/Header";
  * @returns {JSX.Element} Letter 페이지
  */
 const Letter = (): JSX.Element => {
-	const { pathname } = useLocation();
-	const { letterId } = useParams();
+  const { pathname } = useLocation();
+  const { letterId } = useParams();
 
-	/** 페이지 핸들링을 위한 함수 */
-	const handleSetPage = (): JSX.Element => {
-		if (pathname === "/letters/register") return <LetterForm />;
-		if (letterId) return <LetterBox />;
-		return (
-			<Template>
-				<Header title="우편함" />
-			</Template>
-		);
-	};
+  /** 페이지 핸들링을 위한 함수 */
+  const handleSetPage = (): JSX.Element => {
+    if (pathname === "/letters/register") return <LetterForm />;
+    if (letterId) return <LetterBox />;
+    return (
+      <Template>
+        <Header title="편지함" />
+      </Template>
+    );
+  };
 
-	return handleSetPage();
+  return handleSetPage();
 };
 export default Letter;

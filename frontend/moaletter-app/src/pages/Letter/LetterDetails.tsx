@@ -6,10 +6,10 @@ import Template from "../../components/Template";
  * @returns {JSX.Element} LetterDetails 페이지
  */
 const LetterBox = (): JSX.Element => {
-	return (
-		<Template>
-			<Header title="우편 상세" />
-		</Template>
-	);
+  return (
+    <Template>
+      <Header title="편지 상세" />
+    </Template>
+  );
 };
 export default LetterBox;
