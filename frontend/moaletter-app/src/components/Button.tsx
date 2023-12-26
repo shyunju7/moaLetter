@@ -2,9 +2,9 @@ import React from "react";
 
 const Button = ({ text }: { text: string }): JSX.Element => {
   return (
-    <div className="flex justify-center w-full max-w-[360px] h-[54px] rounded-[10px] bg-[#C0403F] text-[#ffffff]">
-      <label className="m-auto">{text}</label>
-    </div>
+    <button className="w-full max-w-[360px] h-[54px] mb-10 rounded-[10px] bg-[#C0403F] text-[#ffffff]">
+      {text}
+    </button>
   );
 };
 export default Button;
