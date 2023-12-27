@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import DatePicker from "../../components/Plan/DatePicker";
 import ParticipantList from "../../components/Plan/ParticipantList";
 import PlanInput from "../../components/Plan/PlanInput";
-import SubTitle from "../../components/Plan/subTitle";
+import SubTitle from "../../components/Plan/SubTitle";
 import Template from "../../components/Template";
 
 /**
