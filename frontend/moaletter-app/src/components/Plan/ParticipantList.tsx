@@ -9,8 +9,13 @@ import { friendList } from "../../data/dummy";
 const ParticipantList = (): JSX.Element => {
   return (
     <div className="w-full max-w-[360px] h-full mb-[54px] border border-[#f4f4f4] rounded-[10px]">
-      {friendList?.map((friend) => (
-        <Participant key={friend.id} friend={friend} />
+      {friendList?.map((friend, index) => (
+        <Participant
+          key={friend.id}
+          friend={friend}
+          index={index}
+          listLength={friendList.length}
+        />
       ))}
     </div>
   );
