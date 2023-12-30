@@ -6,6 +6,6 @@ import React from "react";
  * @returns {JSX.Element} ModalSubTitle 컴포넌트
  */
 const ModalSubTitle = ({ title }: { title: string }): JSX.Element => {
-  return <label className="font-SUITE-BD text-[#333333]">{title}</label>;
+  return <p className="font-SUITE-BD text-[#333333] mt-8 mb-2">{title}</p>;
 };
 export default ModalSubTitle;
