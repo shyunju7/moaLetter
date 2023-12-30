@@ -10,23 +10,21 @@ const BottomNavigation = (): JSX.Element => {
   return (
     <nav className="flex items-center w-full max-w-[600px] h-[72px] bg-slate-50 fixed bottom-0">
       <ul className="flex justify-around items-center w-full relative">
-        <li className="cursor-pointer hover:text-[#cdcdcd]">
+        <li className="cursor-pointer">
           <Link to="/">
             <IoHome className="w-[22px] h-[20px] text-[#B31312]" />
             <label className="ml-1 text-sm text-[#B31312]">홈</label>
           </Link>
         </li>
-        <li className=" group cursor-pointer">
+        <li className="cursor-pointer">
           <Link to="/letters">
-            <IoMail className="w-[25px] h-[20px] m-auto text-[#666666] group-hover:text-[#cd6d6d]" />
-            <label className="text-sm  text-[#666666] group-hover:text-[#cd6d6d]">
-              편지함
-            </label>
+            <IoMail className="w-[25px] h-[20px] m-auto text-[#666666] " />
+            <label className="text-sm  text-[#666666]">편지함</label>
           </Link>
         </li>
         <Link
           to="/plan/register"
-          className="absolute top-[-50px] cursor-pointer hover:text-[#CD6D6D]"
+          className="absolute top-[-50px] cursor-pointer "
         >
           <IoAddCircle className="w-[64px] h-[64px]" />
         </Link>
