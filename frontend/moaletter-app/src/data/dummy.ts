@@ -6,6 +6,7 @@ export type planListType = {
   allParticipants: string[];
   attendeesCount: number;
 };
+
 export const planList: planListType[] = [
   {
     id: 1,
@@ -31,4 +32,16 @@ export const planList: planListType[] = [
     attendeesCount: 3,
     status: 1,
   },
+];
+
+export type FriendListType = {
+  id: number;
+  name: string;
+  profileUrl: string;
+};
+
+export const friendList: FriendListType[] = [
+  { id: 1, name: "이예지", profileUrl: "" },
+  { id: 2, name: "이지아", profileUrl: "" },
+  { id: 3, name: "이사랑", profileUrl: "" },
 ];
